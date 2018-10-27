@@ -35,7 +35,7 @@ class Main extends React.Component {
   updateAirData(jsonString) {
     const json = JSON.parse(jsonString);
     this.setState({airData: json.air_data, score: json.score});
-    console.log(json)
+    // console.log(json)
   }
 
   render() {

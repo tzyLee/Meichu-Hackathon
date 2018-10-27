@@ -4,19 +4,12 @@ import Gauge from './Gauge.jsx';
 class Gauges extends React.Component {
   constructor(props) {
     super(props);
-    // this.updateGauge = this.updateGauge.bind(this);
-    // this.state = {value: props.score || [10, 32, 64, 83, 100]};
   }
-
-  // updateGauge(event) {
-  //   this.setState({value: this.state.value.map(_ => event.target.value)});
-  // }
 
   render() {
     return (
       <div>
         {this.props.data.map(value => (<Gauge option={Gauge.opts} value={value}></Gauge>))}
-        {/* <input type="range" min="0" max="100" value={this.state.value[0]} onChange={this.updateGauge} step="1"></input> */}
       </div>
     );
   }
