@@ -3,3 +3,4 @@ node_modules/
 public/
 backend/__pycache__/
 __pycache__/
+.DS_Store
