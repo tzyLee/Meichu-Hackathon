@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import os
+import backend
 
 public = os.path.abspath('public/')
 app = Flask(__name__, template_folder = public, static_folder = public, static_url_path= '')
