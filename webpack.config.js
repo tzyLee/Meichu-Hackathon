@@ -55,6 +55,5 @@ module.exports = {
       filename: 'index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new CopyWebpackPlugin([{ from: 'src/asset', to: 'asset' }]),
   ],
 };
