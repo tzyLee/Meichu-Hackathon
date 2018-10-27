@@ -29,7 +29,7 @@ class BarChart extends React.Component {
           obj.xoffset = 3;
           return obj;
         })} labelAnchorY="middle" labelAnchorX="end"/>
-        <LabelSeries animation data={[{x: markXOffset, y: ' ', label: 'Status'}]} labelAnchorX='middle' labelAnchorY='middle'/>
+        <LabelSeries data={[{x: markXOffset, y: ' ', label: 'Status'}]} labelAnchorX='middle' labelAnchorY='middle'/>
         <LineSeries color='#4d4c5f' data={[{x: threshold, y: data[0].y}, {x: threshold, y: ' '}]} strokeStyle='dashed' strokeWidth='3px'/>
         {this.getLight(data, threshold, markXOffset)}
     </FlexibleWidthXYPlot>
