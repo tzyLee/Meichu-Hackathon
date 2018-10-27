@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 // import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import LineChart from './LineChart.jsx';
 import Logo from '../assets/logo.png';
 
 class Past extends React.Component {
@@ -11,39 +12,40 @@ class Past extends React.Component {
 
   render() {
     return (
-        <React.Fragment>
-            <Grid item xs={4}>
-              <Paper style = {{height : '100px', position: 'relative'}}>
-              </Paper>
-            </Grid>
-            <Grid item xs={4}>
-              <Paper style = {{height : '100px', position: 'relative'}}>
-              </Paper>
-            </Grid>
-            <Grid item xs={4}>
-              <Paper style = {{height : '100px', position: 'relative'}}>
-              </Paper>
-            </Grid>
-            <Grid item xs={4}>
-              <Paper style = {{height : '200px', position: 'relative'}}>
-              </Paper>
-            </Grid>
-            <Grid item xs={4}>
-              <Paper style = {{height : '200px', position: 'relative'}}>
-              </Paper>
-            </Grid>
-            <Grid item xs={4}>
-              <Paper style = {{height : '200px', position: 'relative'}}>
-              </Paper>
-            </Grid>
-            <Grid item xs={9}>
-              <Paper style = {{height: '400px', position: 'relative'}}>
-              </Paper>
-            </Grid>
-            <Grid item xs={3}>
-              <Paper style = {{height: '400px', position: 'relative'}}>
-              </Paper>
-            </Grid>
+      <React.Fragment>
+        <Grid item xs={4}>
+          <Paper style = {{height : '100px', position: 'relative'}}>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper style = {{height : '100px', position: 'relative'}}>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper style = {{height : '100px', position: 'relative'}}>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper style = {{height : '200px', position: 'relative'}}>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper style = {{height : '200px', position: 'relative'}}>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper style = {{height : '200px', position: 'relative'}}>
+          </Paper>
+        </Grid>
+        <Grid item xs={9}>
+          <Paper style = {{height: '400px', position: 'relative'}}>
+          <LineChart/>
+          </Paper>
+        </Grid>
+        <Grid item xs={3}>
+          <Paper style = {{height: '400px', position: 'relative'}}>
+          </Paper>
+        </Grid>
     </React.Fragment>);
   }
 }

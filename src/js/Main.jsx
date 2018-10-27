@@ -76,7 +76,7 @@ class Main extends React.Component {
             </Grid>
             {
               this.state.value ? (
-                <Past />
+                <Past/>
               ) : (
                 <Realtime data = {this.state} />         
               )
