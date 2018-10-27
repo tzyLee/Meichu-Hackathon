@@ -1,11 +1,13 @@
 import React from 'react';
-import Gauges from './Gauges.jsx';
-import BarChart from './BarChart.jsx';
 import Grid from '@material-ui/core/Grid';
-// import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Logo from '../assets/logo.png';
-import AverageGauge from './AverageGauge.jsx';
+import Realtime from './Realtime.jsx';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 let chartData = [
   {value: 0, x: 0, y: "CO2"},
@@ -22,8 +24,9 @@ let chartData = [
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {airData: {'1': chartData}, score: [], average: 0};
+    this.state = {airData: {'1': chartData}, score: [], average: 0, value: 0};
     setInterval(() => Main.prototype.sendGetDataRequest('./data', this.updateAirData.bind(this)), 500);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   sendGetDataRequest(path, callback) {
@@ -42,50 +45,41 @@ class Main extends React.Component {
     this.setState({airData: json.air_data, score: json.score, average: json.average});
     // console.log(json)
   }
+
+  handleChange(e, value){
+    this.setState({ value });
+  };
+
   render() {
     return (
       <div>
          <Grid container className = 'root' spacing = {24}>
             <Grid item xs = {12}>
               <Paper style = {{height: '80px', backgroundColor: '#4d4c5f', position: 'relative'}}> 
-                <img style = {{position: 'relative', top: '20px', left: '20px', height: '50%'}} src={Logo}/>
+                <Grid container justify = 'space-between'>
+                  <Grid item xs>
+                    <img style = {{position: 'relative', top: '20px', left: '20px', height: '50%'}} src={Logo}/>
+                  </Grid>
+                  <Grid item xs>
+                    <BottomNavigation 
+                      value = {this.state.value}
+                      style = {{backgroundColor: '#4d4c62'}}
+                      onChange={this.handleChange}
+                      showLabels>
+                      <BottomNavigationAction label="Real-Time" icon={<FavoriteIcon />} />
+                      <BottomNavigationAction label="History" icon={<RestoreIcon />} />
+                    </BottomNavigation>
+                  </Grid>
+                </Grid>
               </Paper>
             </Grid>
-            <Grid item xs={8}>
-              <Paper style = {{height : '340px', position: 'relative', overflow: 'scroll'}}>
-                <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Measurement </div>
-                <BarChart data={this.state.airData['1']}></BarChart> 
-              </Paper>
-            </Grid>
-            <Grid item container xs={4} justify="space-between" direction="column">
-              <Grid item > 
-                <Paper style = {{height : '100px', position: 'relative'}}>
-                  <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Energy </div>
-                </Paper> 
-              </Grid>
-              <Grid item > 
-                <Paper style = {{height : '100px', position: 'relative'}}>
-                  <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Power </div>
-                </Paper> 
-              </Grid>
-              <Grid item > 
-                <Paper style = {{height : '100px', position: 'relative'}}>
-                  <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Tree </div>
-                </Paper> 
-              </Grid>
-            </Grid>
-            <Grid item xs={9}>
-              <Paper style = {{height: '220px', position: 'relative'}}> 
-                <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Scenario Score </div>
-                <Gauges data={this.state.score}></Gauges> 
-              </Paper>
-            </Grid>
-            <Grid item xs={3}>
-              <Paper style = {{height: '220px', position: 'relative'}}>
-                <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Average Score </div>
-                <AverageGauge value={this.state.average}/>
-              </Paper>
-            </Grid>
+            {
+              this.state.value ? (
+                <h1> 123 </h1>
+              ) : (
+                <Realtime data = {this.state} />         
+              )
+            }
          </Grid>
       </div>);
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {XYPlot, ArcSeries, LabelSeries} from 'react-vis';
+import {FlexibleXYPlot, XYPlot, ArcSeries, LabelSeries} from 'react-vis';
 
 class AverageGauge extends React.Component {
   constructor(props) {
@@ -12,11 +12,11 @@ class AverageGauge extends React.Component {
 
   render() {
     return (
-      <XYPlot className='alignCenter' xDomain={[-5, 5]} yDomain={[-5, 5]} width={200} height={200}>
+      <FlexibleXYPlot className='alignCenter' xDomain={[-5, 5]} yDomain={[-5, 5]}>
         <LabelSeries data={[{x: -0.5, y: -0.7, label: Math.round(this.props.value)}]} labelAnchorX='middle' labelAnchorY='middle'/>
         <ArcSeries className='alignCenter' animation radiusType={'literal'} center={{x: -0.5, y: -0.7}}
                    data={this.getArcData(this.props.value)} colorType={'literal'} radiusDomain={[0, 90]}/>
-      </XYPlot>
+      </FlexibleXYPlot>
     );
   }
 }
