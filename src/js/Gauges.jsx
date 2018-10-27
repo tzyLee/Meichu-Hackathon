@@ -20,13 +20,13 @@ class Gauges extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Grid container style = {{height: '100%'}} justify="space-evenly" alignItems="center" xs={12}>
         {this.state.value.map(value => (
-         <Grid className = 'dashboard-item' style = {{textAlign: 'center'}} item xs={2}>  
+         <Grid style = {{textAlign: 'center'}} item xs={2}>  
             <Gauge option={Gauge.opts} value={value}></Gauge>
          </Grid>
          ))}
-      </React.Fragment>
+      </Grid>
     );
   }
 }

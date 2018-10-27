@@ -12,9 +12,9 @@ class BarChart extends React.Component {
     // const chartWidth = 900;
     const chartDomain = [0, chartHeight];
     return (
-    <FlexibleWidthXYPlot yType="ordinal" height = "500" xDomain={chartDomain}>
+    <FlexibleWidthXYPlot yType="ordinal" height = {chartHeight} xDomain={chartDomain}>
         <YAxis/>
-        <HorizontalBarSeries data={data}/>
+        <HorizontalBarSeries color='#6fc6cc' barWidth={0.5} data={data}/>
         <LabelSeries data={data.map(obj => {
           obj.label = obj.x.toString();
           return obj;
