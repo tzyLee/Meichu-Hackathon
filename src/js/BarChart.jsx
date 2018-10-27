@@ -20,16 +20,17 @@ class BarChart extends React.Component {
     const threshold = chartWidth*thresholdRatio/2;
     const markXOffset = 500;
     return (
-    <FlexibleWidthXYPlot yType="ordinal" height = {chartHeight} xDomain={chartDomain}>
-        <YAxis/>
+    <FlexibleWidthXYPlot margin={{left: 100}} yType="ordinal" height = {chartHeight} xDomain={chartDomain}>
+        <YAxis style={{text: {stroke: 'none', fill: '#868580'}}}/>
         <HorizontalBarSeries color='#6fc6cc' barWidth={0.5} data={data.map(obj => ({x: obj.x*chartWidth/2, y: obj.y}))}/>
         <LabelSeries data={data.map(obj => {
           obj.label = obj.value.toString();
-          obj.xOffset = 3;
+          obj.x *= chartWidth/2;
+          obj.xoffset = 3;
           return obj;
-        })} labelAnchorY="middle" labelAnchorX="text-after-edge"/>
-        <LabelSeries animation data={[{x: markXOffset, y: 'Gas', label: 'Status'}]} labelAnchorX='middle' labelAnchorY='middle'/>
-        <LineSeries data={[{x: threshold, y: data[0].y}, {x: threshold, y: 'Gas'}]} strokeStyle='dashed' strokeWidth='3px'/>
+        })} labelAnchorY="middle" labelAnchorX="end"/>
+        <LabelSeries animation data={[{x: markXOffset, y: ' ', label: 'Status'}]} labelAnchorX='middle' labelAnchorY='middle'/>
+        <LineSeries color='#4d4c5f' data={[{x: threshold, y: data[0].y}, {x: threshold, y: ' '}]} strokeStyle='dashed' strokeWidth='3px'/>
         {this.getLight(data, threshold, markXOffset)}
     </FlexibleWidthXYPlot>
     );

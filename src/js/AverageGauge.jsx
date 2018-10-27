@@ -13,7 +13,7 @@ class AverageGauge extends React.Component {
   render() {
     return (
       <XYPlot className='alignCenter' xDomain={[-5, 5]} yDomain={[-5, 5]} width={200} height={200}>
-        <LabelSeries data={[{x: -0.5, y: -0.7, label: Math.round(this.props.value)}]} labelAnchorX='middle' labelAnchorY='middle'/>
+        <LabelSeries data={[{x: -0.5, y: -0.7, label: Math.round(this.props.value)}]} style={{fontSize: 80, stroke: '#868580'}} labelAnchorX='middle' labelAnchorY='middle'/>
         <ArcSeries className='alignCenter' animation radiusType={'literal'} center={{x: -0.5, y: -0.7}}
                    data={this.getArcData(this.props.value)} colorType={'literal'} radiusDomain={[0, 90]}/>
       </XYPlot>
