@@ -1,25 +1,32 @@
 import React from 'react';
 import Gauge from './Gauge.jsx';
-
+import Grid from '@material-ui/core/Grid';
 class Gauges extends React.Component {
   constructor(props) {
     super(props);
-    this.updateGauge = this.updateGauge.bind(this);
-    this.state = {value: [10, 32, 64, 83, 100]};
-    this.gauges = this.state.value.map(value => (<Gauge option={Gauge.opts} value={value}></Gauge>));
+    this.state = {value: [0, 0, 0, 0, 0]};
   }
-
-  updateGauge(event) {
-    this.setState({value: this.state.value.map(_ => event.target.value)});
-    this.gauges = this.state.value.map(value => (<Gauge option={Gauge.opts} value={value}></Gauge>));
+  // for test
+  componentDidMount() {
+    setInterval(() => {
+      if(this.state.value[0] == 100){
+        this.setState({value: this.state.value.map(x => 0)});
+      }
+      else{
+        this.setState({value: this.state.value.map(x => x + 1)});
+      }
+    }, 100);
   }
 
   render() {
     return (
-      <div>
-        {this.gauges}
-        <input type="range" min="0" max="100" value={this.state.value[0]} onChange={this.updateGauge} step="1"></input>
-      </div>
+      <React.Fragment>
+        {this.state.value.map(value => (
+         <Grid className = 'dashboard-item' style = {{textAlign: 'center'}} item xs={2}>  
+            <Gauge option={Gauge.opts} value={value}></Gauge>
+         </Grid>
+         ))}
+      </React.Fragment>
     );
   }
 }

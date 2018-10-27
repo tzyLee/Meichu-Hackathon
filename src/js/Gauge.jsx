@@ -14,7 +14,6 @@ class Gauge extends React.Component {
     this.gauge = new GaugeJS.Gauge(this.canvasRef.current).setOptions(this.state.option);
     this.gauge.setTextField(document.getElementById(this.name));
     this.gauge.maxValue = 100;
-    console.log(this.gauge);
     this.updateCanvas();
   }
 
@@ -44,11 +43,13 @@ class Gauge extends React.Component {
 
   render() {
     return (
-    <div className='Gauge'>
-      <canvas ref={this.canvasRef}></canvas>
-      <div id={this.name}></div>
-      <div className='GaugeDescription'>{this.description()}</div>
-    </div>);
+    <React.Fragment>
+      <canvas style = {{width: "100%"}} ref={this.canvasRef}></canvas>
+      <br/>
+      <span id={this.name}></span>
+      <br/>
+      <span className='GaugeDescription'>{this.description()}</span>
+    </React.Fragment>);
   }
 }
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import Gauges from './Gauges.jsx';
 import BarChart from './BarChart.jsx';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+// import { withStyles } from '@material-ui/core/styles';
+// import Paper from '@material-ui/core/Paper';
 
 let chartData = [
   {x: 100, y: "CO2"},
@@ -20,50 +20,29 @@ let chartData = [
   {x: 447, y: "Dec"}
 ]
 
-const styles = theme => ({
-   root: {
-     flexGrow: 1,
-   },
-   paper: {
-     padding: theme.spacing.unit * 2,
-     textAlign: 'center',
-     color: theme.palette.text.secondary,
-   },
- });
-
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.classes = props;
   }
   render() {
     return (
-      <div className = {this.classes.root}>
-         <Grid container spacing={24}>
-            <Grid item xs={12}>
-               <Paper className={this.classes.paper}>xs=12</Paper>
+      <div className = 'root'>
+         <Grid container justify="center">
+            <Grid className = 'header' style = {{height: '96px'}} xs = {12}>
+              respira
             </Grid>
-            <Grid item xs={6}>
-               <Paper className={this.classes.paper}>xs=6</Paper>
+            <Grid style = {{height : '382px', overflow: 'scroll'}} item xs={8}>
+              <BarChart data={chartData}></BarChart>
             </Grid>
-            <Grid item xs={6}>
-               <Paper className={this.classes.paper}>xs=6</Paper>
+            <Grid style = {{height : '382px', overflow: 'scroll'}} item xs={4}>
+              <BarChart data={chartData}></BarChart>
             </Grid>
-            <Grid item xs={3}>
-               <Paper className={this.classes.paper}>xs=3</Paper>
-            </Grid>
-            <Grid item xs={3}>
-               <Paper className={this.classes.paper}>xs=3</Paper>
-            </Grid>
-            <Grid item xs={3}>
-               <Paper className={this.classes.paper}>xs=3</Paper>
-            </Grid>
-            <Grid item xs={3}>
-               <Paper className={this.classes.paper}>xs=3</Paper>
+            <Grid className = 'dashboard' style = {{height: '242px'}} container justify="space-around" alignItems="center" item xs={12}>
+              <Gauges></Gauges>
             </Grid>
          </Grid>
       </div>);
   }
 }
 
-export default withStyles(styles)(Main);
+export default Main;
