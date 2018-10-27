@@ -1,5 +1,12 @@
-
 import numpy as np
+
+loc = list(range(1, 6))
+def extract_scores(scores_dict):
+    scores = np.zeros(len(loc))
+    for l in loc:
+        scores[l - 1] = scores_dict[l]
+    return scores
+
 def compute_saving(scores):
     """
     Args:

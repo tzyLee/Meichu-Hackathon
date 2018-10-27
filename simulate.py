@@ -39,8 +39,8 @@ def to_json(air_type, air_data, n, k):
 for loc in locations:
     loc_dir = os.path.join(root_dir, str(loc))
     for air in air_types:
-        data = gen_air_data(air, 100, 2, 10)
-        json_obj = to_json(air, data, 2, 10)
+        data = gen_air_data(air, 10, 2, 50)
+        json_obj = to_json(air, data, 2, 50)
         with open(os.path.join(loc_dir, '{}.json'.format(air)), 'w') as json_file:
             json.dump(json_obj, json_file)
 

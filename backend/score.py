@@ -1,6 +1,6 @@
 import numpy as np
 
-
+loc = list(range(1, 6))
 air_types = ['CO2', 'CO', 'HCHO', 'TVOC', 'Bacteria', 'Fungi', 'PM10', 'PM2.5', 'O3']
 air_score = {'CO2': [0, 500, 1000, 1500, 2000] , 'CO': [0.0, 4.4, 9, 12.4, 15.4], 'HCHO': [0.0, 0.04, 0.08, 0.12, 0.16], 
 			'TVOC': [0, 0.28, 0.56, 0.84, 1.12], 'Bacteria': [0, 750, 1500, 2250, 3000], 'Fungi': [0, 500, 1000, 1500, 2000],
@@ -38,3 +38,12 @@ def json_to_arr(json_obj):
     for i in range(n):
         data[i] = json_obj[air_types[i]]['value']
     return data
+
+def compute_score(data):
+    scores = {}
+    score_sum = 0
+    for i in loc:
+        scores[i] = AQI_score(json_to_arr(data[i]))
+        score_sum += scores[i]
+    scores['ave'] = score_sum / len(loc)
+    return scores
