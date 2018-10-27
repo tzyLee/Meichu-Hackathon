@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import os
 import backend
 
-public = os.path.abspath('public/')
+public = os.path.abspath('src/')
 app = Flask(__name__, template_folder = public, static_folder = public, static_url_path= '')
 
 @app.route('/')
@@ -11,3 +11,4 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug = True)
+    
