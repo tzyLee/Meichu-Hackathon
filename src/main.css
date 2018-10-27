@@ -1,5 +1,5 @@
 /* Gauge */
-.Gauge {
+/* .Gauge {
     width: fit-content;
     display: inline-block;
 }
@@ -12,4 +12,21 @@
 .Gauge .GaugeDescription {
     text-align: center;
     font-size: 1.4em;
+} */
+/* .dashboard{
+  width: 100%;
+} */
+* {
+  /* margin: 0; */
+  /* padding: 0; */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+html {
+  background-color: #9c9b9b;
+}
+.root {
+  height: 100vh;
 }

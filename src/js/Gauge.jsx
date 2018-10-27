@@ -43,11 +43,13 @@ class Gauge extends React.Component {
 
   render() {
     return (
-    <div className='Gauge'>
-      <canvas ref={this.canvasRef}></canvas>
-      <div id={this.name}></div>
-      <div className='GaugeDescription'>{this.description()}</div>
-    </div>);
+    <React.Fragment>
+      <canvas style = {{width: "100%"}} ref={this.canvasRef}></canvas>
+      <br/>
+      <span id={this.name}></span>
+      <br/>
+      <span className='GaugeDescription'>{this.description()}</span>
+    </React.Fragment>);
   }
 }
 

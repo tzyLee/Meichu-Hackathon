@@ -1,5 +1,5 @@
 import React from 'react';
-import {XYPlot, XAxis, YAxis, HorizontalBarSeries, LabelSeries, LineSeries, MarkSeries} from 'react-vis';
+import {FlexibleWidthXYPlot, XAxis, YAxis, HorizontalBarSeries, LabelSeries, LineSeries, MarkSeries} from 'react-vis';
 
 class BarChart extends React.Component {
   constructor(props) {
@@ -16,15 +16,15 @@ class BarChart extends React.Component {
   }
   render() {
     const data = this.props.data;
-    const chartHeight= 600;
-    const chartWidth = 900;
+    const chartHeight= 500;
+    // const chartWidth = 900;
     const chartDomain = [0, chartHeight];
     const threshold = 200;
     const markXOffset = 500;
     return (
-    <XYPlot margin={{left: 100, right: 100}} yType="ordinal" width={chartWidth} height={chartHeight} xDomain={chartDomain}>
+    <FlexibleWidthXYPlot yType="ordinal" height = {chartHeight} xDomain={chartDomain}>
         <YAxis/>
-        <HorizontalBarSeries data={data}/>
+        <HorizontalBarSeries color='#6fc6cc' barWidth={0.5} data={data}/>
         <LabelSeries data={data.map(obj => {
           obj.label = obj.x.toString();
           obj.xOffset = 3;
@@ -33,7 +33,7 @@ class BarChart extends React.Component {
         <LabelSeries animation data={[{x: markXOffset, y: 'Gas', label: 'Status'}]} labelAnchorX='middle' labelAnchorY='middle'/>
         <LineSeries data={[{x: threshold, y: data[0].y}, {x: threshold, y: data[data.length-1].y}]} strokeStyle='dashed' strokeWidth='3px'/>
         {this.getLight(data, threshold, markXOffset)}
-    </XYPlot>
+    </FlexibleWidthXYPlot>
     );
   }
 }
