@@ -22,7 +22,7 @@ let chartData = [
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {airData: {'1': chartData}, score: [], average: 0};
+    this.state = {airData: {'1': chartData}, score: [], average: 0, power: 0};
     setInterval(() => Main.prototype.sendGetDataRequest('./data', this.updateAirData.bind(this)), 500);
   }
 
@@ -39,8 +39,8 @@ class Main extends React.Component {
 
   updateAirData(jsonString) {
     const json = JSON.parse(jsonString);
-    this.setState({airData: json.air_data, score: json.score, average: json.average});
-    // console.log(json)
+    this.setState({airData: json.air_data, score: json.score, average: json.average, power: json.power});
+    console.log(json)
   }
   render() {
     return (
@@ -52,7 +52,7 @@ class Main extends React.Component {
               </Paper>
             </Grid>
             <Grid item xs={8}>
-              <Paper style = {{height : '340px', position: 'relative', overflow: 'scroll'}}>
+              <Paper style = {{height : '340px', position: 'relative', overflow: 'scroll', overflowX: 'hidden'}}>
                 <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Measurement </div>
                 <BarChart data={this.state.airData['1']}></BarChart> 
               </Paper>
@@ -60,17 +60,23 @@ class Main extends React.Component {
             <Grid item container xs={4} justify="space-between" direction="column">
               <Grid item > 
                 <Paper style = {{height : '100px', position: 'relative'}}>
-                  <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Energy </div>
+                  <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Power 
+                    <span className='infoText'>{this.state.power}</span>
+                  </div>
                 </Paper> 
               </Grid>
               <Grid item > 
                 <Paper style = {{height : '100px', position: 'relative'}}>
-                  <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Power </div>
+                  <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Coin
+                    <span className='infoText'>{this.state.power}</span>  
+                  </div>
                 </Paper> 
               </Grid>
               <Grid item > 
                 <Paper style = {{height : '100px', position: 'relative'}}>
-                  <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Tree </div>
+                  <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Tree
+                    <span className='infoText'>{this.state.power}</span>
+                  </div>
                 </Paper> 
               </Grid>
             </Grid>
