@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 // import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Logo from '../assets/logo.png';
+import AverageGauge from './AverageGauge.jsx';
 
 let chartData = [
   {value: 0, x: 0, y: "CO2"},
@@ -21,7 +22,7 @@ let chartData = [
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {airData: {'1': chartData}, score: []};
+    this.state = {airData: {'1': chartData}, score: [], average: 0};
     setInterval(() => Main.prototype.sendGetDataRequest('./data', this.updateAirData.bind(this)), 500);
   }
 
@@ -38,7 +39,7 @@ class Main extends React.Component {
 
   updateAirData(jsonString) {
     const json = JSON.parse(jsonString);
-    this.setState({airData: json.air_data, score: json.score});
+    this.setState({airData: json.air_data, score: json.score, average: json.average});
     // console.log(json)
   }
   render() {
@@ -82,6 +83,7 @@ class Main extends React.Component {
             <Grid item xs={3}>
               <Paper style = {{height: '220px', position: 'relative'}}>
                 <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Average Score </div>
+                <AverageGauge value={this.state.average}/>
               </Paper>
             </Grid>
          </Grid>

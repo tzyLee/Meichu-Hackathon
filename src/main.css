@@ -16,6 +16,7 @@
 /* .dashboard{
   width: 100%;
 } */
+
 * {
   /* margin: 0; */
   /* padding: 0; */
@@ -26,11 +27,17 @@
   font-family: 'Share Tech', sans-serif;
   color: #868580;
 }
+
 html {
   background-color: #9c9b9b;
   overflow: hidden;
 }
+
 .root {
   height: 100vh;
   padding: 20px;
+}
+
+.alignCenter {
+  margin: 0 auto;
 }
