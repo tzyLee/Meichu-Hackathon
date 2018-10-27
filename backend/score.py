@@ -57,5 +57,6 @@ def compute_score(data):
     for i in loc:
         scores[i] = AQI_score(get_value(data[i]))
         score_sum += scores[i]
+        scores[i] = round(scores[i])
     scores['ave'] = score_sum / len(loc)
     return scores

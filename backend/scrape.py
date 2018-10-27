@@ -44,6 +44,7 @@ def get_data(idx):
             temp['x'] = temp['value']*multiplier
             ave_data.setdefault(air, {'value': 0, 'threshold': temp['threshold']})
             ave_data[air]['value'] += temp['value']
+            temp['value'] = round(temp['value'], 2)
             total_data[loc].append(temp)
     for key in ave_data:
         ave_data[key]['value'] /= len(locations)

@@ -17,8 +17,8 @@ let chartData = [
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {airData: {'1': chartData}};
-    setInterval(() => Main.prototype.sendGetDataRequest('./data', this.updateAirData.bind(this)), 2000);
+    this.state = {airData: {'1': chartData}, score: []};
+    setInterval(() => Main.prototype.sendGetDataRequest('./data', this.updateAirData.bind(this)), 500);
   }
 
   sendGetDataRequest(path, callback) {
@@ -34,14 +34,15 @@ class Main extends React.Component {
 
   updateAirData(jsonString) {
     const json = JSON.parse(jsonString);
-    this.setState({airData: json.air_data});
+    this.setState({airData: json.air_data, score: json.score});
+    console.log(json)
   }
 
   render() {
     return (
       <div>
         <p>Test</p>
-        <Gauges></Gauges>
+        <Gauges data={this.state.score}></Gauges>
         <BarChart data={this.state.airData['1']}></BarChart>
       </div>);
   }
