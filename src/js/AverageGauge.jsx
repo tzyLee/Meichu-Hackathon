@@ -1,5 +1,5 @@
 import React from 'react';
-import {XYPlot, ArcSeries, LabelSeries} from 'react-vis';
+import {FlexibleXYPlot, XYPlot, ArcSeries, LabelSeries} from 'react-vis';
 
 class AverageGauge extends React.Component {
   constructor(props) {

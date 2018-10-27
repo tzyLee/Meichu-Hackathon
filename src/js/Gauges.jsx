@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 class Gauges extends React.Component {
   constructor(props) {
     super(props);
-    this.scenario = ['辦公廳', '廚房', '影印間', '廁所', '大廳']
+    this.scenario = ['Workplace', 'Kitchen', 'Printing Room', 'Toilet', 'Hall']
   }
 
   render() {

@@ -44,7 +44,7 @@ class Gauge extends React.Component {
   render() {
     return (
     <React.Fragment>
-      <span style = {{color: 'rgb(74, 200, 205)', fontSize: '15px'}}>{this.props.name}</span>
+      <span style = {{color: 'rgb(74, 200, 205)', fontSize: '20px'}}>{this.props.name}</span>
       <canvas style = {{width: "100%"}} ref={this.canvasRef}></canvas>
       <br/>
       <span id={this.name} style = {{color: 'rgb(74, 200, 205)', fontSize: '25px'}}></span>
