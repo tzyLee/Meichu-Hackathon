@@ -14,7 +14,6 @@ class Gauge extends React.Component {
     this.gauge = new GaugeJS.Gauge(this.canvasRef.current).setOptions(this.state.option);
     this.gauge.setTextField(document.getElementById(this.name));
     this.gauge.maxValue = 100;
-    console.log(this.gauge);
     this.updateCanvas();
   }
 

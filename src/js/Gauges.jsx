@@ -40,8 +40,6 @@ Gauge.opts = {
   strokeColor: '#E0E0E0',  // to see which ones work best for you
   generateGradient: true,
   highDpiSupport: true,     // High resolution support
-  maxValue: 100,
-  minValue: 0,
   animationSpeed: 32,
   value: 30,
   percentColors: [[0.0, "#E55934" ], [0.33, "#FA7921"], [0.66, "#FDE74C"], [1, "#9BC53D"]],
