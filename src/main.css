@@ -38,17 +38,17 @@ html {
   padding: 20px;
 }
 
-.alignCenter {
+/* .alignCenter {
   margin: 0 auto;
-}
+} */
 
-.infoText {
+/* .infoText {
   display: block; 
   color: #4ac8cd;
   margin-left: 4em;
   font-size: 1.2em;
 }
-
+*/
 .legend {
   position: absolute;
 }

@@ -10,6 +10,12 @@ class Realtime extends React.Component {
     super(props);
   }
   render() {
+    var {power} = this.props.data;
+    power = Math.round(power * 100) / 100;
+    var money = 1.2 * power + 1;
+    money = Math.round(money * 100) / 100;
+    var tree = 0.01 * power + 0.014;
+    tree = Math.round(tree * 100) / 100;
     return (
     <React.Fragment>
       <Grid item xs={8}>
@@ -20,21 +26,33 @@ class Realtime extends React.Component {
       </Grid>
       <Grid item container xs={4} justify="space-between" direction="column">
         <Grid item > 
-          <Paper style = {{height : '100px', position: 'relative'}}>
-            <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Power
-            <span className='infoText'>{this.props.data.power}</span></div>
+          <Paper style = {{height : '100px', position: 'relative', textAlign: 'center', paddingTop: '30px'}}>
+            <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Power </div>
+            <span style = {{fontSize: '20px'}}>
+              Saving
+              <span style = {{color: '#4ac8cd', fontSize: '40px'}} > {power} </span>
+              %/min.
+            </span>
           </Paper> 
         </Grid>
         <Grid item > 
-          <Paper style = {{height : '100px', position: 'relative'}}>
-            <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Coin
-            <span className='infoText'>{this.props.data.power}</span></div>
+          <Paper style = {{height : '100px', position: 'relative', textAlign: 'center', paddingTop: '30px'}}>
+            <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Coins </div>
+            <span style = {{fontSize: '20px'}}>
+              Saving
+              <span style = {{color: '#4ac8cd', fontSize: '40px'}} > {money} </span>
+              NTD/min.
+            </span>
           </Paper> 
         </Grid>
         <Grid item > 
-          <Paper style = {{height : '100px', position: 'relative'}}>
-            <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Tree
-            <span className='infoText'>{this.props.data.power}</span></div>
+          <Paper style = {{height : '100px', position: 'relative', textAlign: 'center', paddingTop: '30px'}}>
+            <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Trees </div>
+            <span style = {{fontSize: '20px'}}>
+              Planting
+              <span style = {{color: '#4ac8cd', fontSize: '40px'}} > {tree} </span>
+              trees/min.
+            </span>
           </Paper> 
         </Grid>
       </Grid>
