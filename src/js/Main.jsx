@@ -29,4 +29,16 @@ class Main extends React.Component {
   }
 }
 
+function sendGetDataRequest() {
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = () => {
+    if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+      console.log(request.responseText);
+    }
+  }
+  request.open("GET", "./data");
+  request.send();
+}
+
+setInterval(sendGetDataRequest, 2000);
 export default Main;
