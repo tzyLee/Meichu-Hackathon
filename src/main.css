@@ -26,7 +26,9 @@
 }
 html {
   background-color: #9c9b9b;
+  overflow: hidden;
 }
 .root {
   height: 100vh;
+  padding: 20px;
 }

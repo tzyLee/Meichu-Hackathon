@@ -31,13 +31,13 @@ class Main extends React.Component {
             <Grid item xs = {12}>
               <Paper style = {{height: '80px', backgroundColor: '#4d4c5f'}}> respira </Paper>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={8}>
               <Paper style = {{height : '360px', overflow: 'scroll'}}> <BarChart data={chartData}></BarChart> </Paper>
             </Grid>
-            <Grid item container xs={6} justify="space-between" direction="column">
-              <Grid item > <Paper style = {{height : '100px'}}> 123 </Paper> </Grid>
-              <Grid item > <Paper style = {{height : '100px'}}> 123 </Paper> </Grid>
-              <Grid item > <Paper style = {{height : '100px'}}> 123 </Paper> </Grid>
+            <Grid item container xs={4} justify="space-between" direction="column">
+              <Grid item> <Paper style = {{height : '100px'}}> 123 </Paper> </Grid>
+              <Grid item> <Paper style = {{height : '100px'}}> 123 </Paper> </Grid>
+              <Grid item> <Paper style = {{height : '100px'}}> 123 </Paper> </Grid>
             </Grid>
             <Grid item xs={9}>
               <Paper style = {{height: '200px'}}> <Gauges></Gauges> </Paper>
