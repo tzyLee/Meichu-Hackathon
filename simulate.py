@@ -3,8 +3,13 @@ import json
 import numpy as np
 
 root_dir = './data'
+locations = list(range(1, 6))
+for loc in locations:
+    loc_dir = loc_dir = os.path.join(root_dir, str(loc))
+    if not os.path.exists(loc_dir):
+        os.makedirs(os.path.join(loc_dir))
+    
 air_types = ['CO2', 'CO', 'HCHO', 'TVOC', 'Bacteria', 'Fungi', 'PM10', 'PM2.5', 'O3']
-
 air_mu = {'CO2': 1000, 'CO': 9, 'HCHO': 0.08, 'TVOC': 0.56, 'Bacteria': 1500,
            'Fungi': 1000, 'PM10': 75, 'PM2.5': 35, 'O3': 0.06}
 
@@ -31,9 +36,11 @@ def to_json(air_type, air_data, n, k):
                   'filter': 'on' if k * n <= i % (n * (2*k+2)) < (k+1) * n else 'off'} for i in range(len(air_data))}
     return json_data
 
-for air in air_types:
-    data = gen_air_data(air, 100, 2, 10)
-    json_obj = to_json(air, data, 2, 10)
-    with open(os.path.join(root_dir, '{}.json'.format(air)), 'w') as json_file:
-        json.dump(json_obj, json_file)
+for loc in locations:
+    loc_dir = os.path.join(root_dir, str(loc))
+    for air in air_types:
+        data = gen_air_data(air, 100, 2, 10)
+        json_obj = to_json(air, data, 2, 10)
+        with open(os.path.join(loc_dir, '{}.json'.format(air)), 'w') as json_file:
+            json.dump(json_obj, json_file)
 
