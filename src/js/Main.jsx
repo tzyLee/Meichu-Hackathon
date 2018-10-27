@@ -19,6 +19,18 @@ class Main extends React.Component {
     super(props);
   }
 
+  sendGetDataRequest(path, callback) {
+    console.log('called')
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = () => {
+      if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+        callback(request.responseText);
+      }
+    }
+    request.open("GET", path);
+    request.send();
+  }
+
   render() {
     return (
       <div>
@@ -29,16 +41,5 @@ class Main extends React.Component {
   }
 }
 
-function sendGetDataRequest() {
-  let request = new XMLHttpRequest();
-  request.onreadystatechange = () => {
-    if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-      console.log(request.responseText);
-    }
-  }
-  request.open("GET", "./data");
-  request.send();
-}
-
-setInterval(sendGetDataRequest, 2000);
+setInterval(() => Main.prototype.sendGetDataRequest('./data', console.log), 2000);
 export default Main;

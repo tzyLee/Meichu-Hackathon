@@ -12,7 +12,7 @@ def index():
 
 @app.route('/data')
 def send_data():
-    return '..............'
+    return '..............' + str(debug)
     # print(json.dumps({'a': 1, 'b': 2, 'c': 3}))
     # return json.dumps({'a': 1, 'b': 2, 'c': 3})
 
