@@ -7,7 +7,7 @@ from backend import scrape
 from updateThread import global_data, fetch_data
 
 
-public = os.path.abspath('src/')
+public = os.path.abspath('public/')
 app = Flask(__name__, template_folder = public, static_folder = public, static_url_path= '')
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
@@ -17,9 +17,7 @@ def index():
 
 @app.route('/data')
 def send_data():
-    return '..............' + str(debug)
-    # print(json.dumps({'a': 1, 'b': 2, 'c': 3}))
-    # return json.dumps({'a': 1, 'b': 2, 'c': 3})
+    return json.dumps(global_data)
 
 if __name__ == '__main__':
     thread = threading.Thread(target = fetch_data)

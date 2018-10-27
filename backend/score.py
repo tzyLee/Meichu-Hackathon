@@ -24,26 +24,38 @@ def AQI_score(x):
     return score
 
 # Added 
-def json_to_arr(json_obj):
+# def json_to_arr(json_obj):
     
+#     """
+#     Args:
+#         json_obj: a json object of length n = 9.
+#     Returns:
+#         A 1 * 9 numpy array containing the measured values.
+#     """
+    
+#     n = len(json_obj)
+#     data = np.zeros(n)
+#     for i in range(n):
+#         data[i] = json_obj[air_types[i]]['value']
+#     return data
+
+def get_value(array):
     """
     Args:
-        json_obj: a json object of length n = 9.
+        [int: dict]: dict contains gas info, int is 0-9
     Returns:
-        A 1 * 9 numpy array containing the measured values.
+        A numpy array of shape (9,), containing the measured values
     """
-    
-    n = len(json_obj)
-    data = np.zeros(n)
-    for i in range(n):
-        data[i] = json_obj[air_types[i]]['value']
+    data = np.zeros(len(array))
+    for i in range(len(array)):
+        data[i] = array[i]['value']
     return data
 
 def compute_score(data):
     scores = {}
     score_sum = 0
     for i in loc:
-        scores[i] = AQI_score(json_to_arr(data[i]))
+        scores[i] = AQI_score(get_value(data[i]))
         score_sum += scores[i]
     scores['ave'] = score_sum / len(loc)
     return scores
