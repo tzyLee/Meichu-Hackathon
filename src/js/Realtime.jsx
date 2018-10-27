@@ -21,13 +21,13 @@ class Realtime extends React.Component {
       <Grid item container xs={4} justify="space-between" direction="column">
         <Grid item > 
           <Paper style = {{height : '100px', position: 'relative'}}>
-            <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Energy
+            <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Power
             <span className='infoText'>{this.props.data.power}</span></div>
           </Paper> 
         </Grid>
         <Grid item > 
           <Paper style = {{height : '100px', position: 'relative'}}>
-            <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Power
+            <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Coin
             <span className='infoText'>{this.props.data.power}</span></div>
           </Paper> 
         </Grid>

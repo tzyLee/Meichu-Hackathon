@@ -8,6 +8,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Past from './Past.jsx';
 
 let chartData = [
   {value: 0, x: 0, y: "CO2"},
@@ -75,7 +76,7 @@ class Main extends React.Component {
             </Grid>
             {
               this.state.value ? (
-                <h1> 123 </h1>
+                <Past />
               ) : (
                 <Realtime data = {this.state} />         
               )
