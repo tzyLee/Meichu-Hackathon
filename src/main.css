@@ -23,6 +23,8 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   flex-grow: 1;
+  font-family: 'Share Tech', sans-serif;
+  color: #868580;
 }
 html {
   background-color: #9c9b9b;

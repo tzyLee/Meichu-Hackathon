@@ -1,3 +1,5 @@
 node_modules/
 .vscode/
 public/
+backend/__pycache__/
+__pycache__/

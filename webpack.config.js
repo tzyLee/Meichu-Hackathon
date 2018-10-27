@@ -41,11 +41,17 @@ module.exports = {
         loaders: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: "file-loader",
-        options: {
-          name: "assets/fonts/[name].[ext]"
-        }
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true, // webpack@1.x
+              disable: true, // webpack@2.x and newer
+            },
+          },
+        ],
       }
     ],
   },

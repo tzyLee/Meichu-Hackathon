@@ -4,26 +4,15 @@ import Grid from '@material-ui/core/Grid';
 class Gauges extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: [0, 0, 0, 0, 0]};
-  }
-  // for test
-  componentDidMount() {
-    setInterval(() => {
-      if(this.state.value[0] == 100){
-        this.setState({value: this.state.value.map(x => 0)});
-      }
-      else{
-        this.setState({value: this.state.value.map(x => x + 1)});
-      }
-    }, 100);
+    this.scenario = ['辦公廳', '廚房', '影印間', '廁所', '大廳']
   }
 
   render() {
     return (
-      <Grid container style = {{height: '100%'}} justify="space-evenly" alignItems="center" xs={12}>
-        {this.state.value.map(value => (
+      <Grid container style = {{height: '100%', paddingTop: '20px'}} justify="space-evenly" alignItems="center" xs={12}>
+        {this.props.data.map((value, i) => (
          <Grid style = {{textAlign: 'center'}} item xs={2}>  
-            <Gauge option={Gauge.opts} value={value}></Gauge>
+            <Gauge option={Gauge.opts} value={value} name={this.scenario[i]}></Gauge>
          </Grid>
          ))}
       </Grid>
@@ -47,8 +36,6 @@ Gauge.opts = {
   strokeColor: '#E0E0E0',  // to see which ones work best for you
   generateGradient: true,
   highDpiSupport: true,     // High resolution support
-  maxValue: 100,
-  minValue: 0,
   animationSpeed: 32,
   value: 30,
   percentColors: [[0.0, "#E55934" ], [0.33, "#FA7921"], [0.66, "#FDE74C"], [1, "#9BC53D"]],

@@ -27,13 +27,13 @@ class Gauge extends React.Component {
 
   description() {
     if(this.props.value < 25) {
-      return '危險';
+      return 'Dangerous';
     } else if(this.props.value < 50) {
-      return '警告';
+      return 'Warning';
     } else if(this.props.value < 75) {
-      return '普通';
+      return 'Normal';
     } else {
-      return '良好';
+      return 'Good';
     }
   }
 
@@ -44,9 +44,10 @@ class Gauge extends React.Component {
   render() {
     return (
     <React.Fragment>
+      <span style = {{color: 'rgb(74, 200, 205)', fontSize: '15px'}}>{this.props.name}</span>
       <canvas style = {{width: "100%"}} ref={this.canvasRef}></canvas>
       <br/>
-      <span id={this.name}></span>
+      <span id={this.name} style = {{color: 'rgb(74, 200, 205)', fontSize: '25px'}}></span>
       <br/>
       <span className='GaugeDescription'>{this.description()}</span>
     </React.Fragment>);
