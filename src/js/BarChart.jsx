@@ -6,27 +6,25 @@ class BarChart extends React.Component {
     super(props);
   }
 
-  determineColor(value, threshold) {
-    return ;
-  }
-
   getLight(data, threshold, markXOffset) {
     const markSize = 10;
-    return data.map(obj => (<MarkSeries stroke='none' fill={obj.x > threshold ? "#E55934" : "#9BC53D"} data={[{x: markXOffset, y: obj.y, size: markSize}]}/>));
+    return data.map(obj => (<MarkSeries stroke='none' fill={obj.quality === 'bad' ? "#E55934" : "#9BC53D"} data={[{x: markXOffset, y: obj.y, size: markSize}]}/>));
   }
+
   render() {
     const data = this.props.data;
-    const chartHeight= 500;
-    // const chartWidth = 900;
+    const chartHeight= 600;
+    const chartWidth = 900;
     const chartDomain = [0, chartHeight];
-    const threshold = 200;
+    const thresholdRatio = 0.7;
+    const threshold = chartWidth*thresholdRatio/2;
     const markXOffset = 500;
     return (
     <FlexibleWidthXYPlot yType="ordinal" height = {chartHeight} xDomain={chartDomain}>
         <YAxis/>
-        <HorizontalBarSeries color='#6fc6cc' barWidth={0.5} data={data}/>
+        <HorizontalBarSeries color='#6fc6cc' barWidth={0.5} data={data.map(obj => ({x: obj.x*chartWidth/2, y: obj.y}))}/>
         <LabelSeries data={data.map(obj => {
-          obj.label = obj.x.toString();
+          obj.label = obj.value.toString();
           obj.xOffset = 3;
           return obj;
         })} labelAnchorY="middle" labelAnchorX="text-after-edge"/>

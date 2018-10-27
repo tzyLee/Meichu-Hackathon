@@ -4,24 +4,12 @@ import Grid from '@material-ui/core/Grid';
 class Gauges extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: [0, 0, 0, 0, 0]};
-  }
-  // for test
-  componentDidMount() {
-    setInterval(() => {
-      if(this.state.value[0] == 100){
-        this.setState({value: this.state.value.map(x => 0)});
-      }
-      else{
-        this.setState({value: this.state.value.map(x => x + 1)});
-      }
-    }, 100);
   }
 
   render() {
     return (
       <Grid container style = {{height: '100%'}} justify="space-evenly" alignItems="center" xs={12}>
-        {this.state.value.map(value => (
+        {this.props.data.map(value => (
          <Grid style = {{textAlign: 'center'}} item xs={2}>  
             <Gauge option={Gauge.opts} value={value}></Gauge>
          </Grid>

@@ -27,13 +27,13 @@ class Gauge extends React.Component {
 
   description() {
     if(this.props.value < 25) {
-      return '危險';
+      return 'Dangerous';
     } else if(this.props.value < 50) {
-      return '警告';
+      return 'Warning';
     } else if(this.props.value < 75) {
-      return '普通';
+      return 'Normal';
     } else {
-      return '良好';
+      return 'Good';
     }
   }
 
