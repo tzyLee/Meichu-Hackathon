@@ -31,7 +31,7 @@ for loc in locations:
 #     return total_data
 
 def get_data(idx):
-    threshold_ratio = 0.7
+    threshold_ratio = 0.85
     total_data = {}
     ave_data = {}
     for loc in locations:
