@@ -14,7 +14,7 @@ class LineChart extends React.Component {
       <FlexibleWidthXYPlot margin={{left: 50, right: 20}} width={1300} height={400} xDomain={[1, 12]} yDomain={[41, 68]}>
         <XAxis />
         <YAxis/>
-        <DiscreteColorLegend className='legend' width={200} height={200} style={{display: 'inline'}} items={[{title: 'indoor', color: '#4d4c5f'}, {title: 'outdoor', color: '#6fc6cc'}]}/>
+        <DiscreteColorLegend className='legend' width={400} height={400} style={{display: 'inline'}} items={[{title: 'indoor', color: '#4d4c5f', strokeWidth: 10}, {title: 'outdoor', color: '#6fc6cc', strokeWidth: 10}]}/>
         <AreaSeries color='#4d4c5f' data={this.indoor}/>
         <AreaSeries color='#6fc6cc' data={this.outdoor}/>
       </FlexibleWidthXYPlot>

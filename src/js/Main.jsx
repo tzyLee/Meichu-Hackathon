@@ -66,20 +66,14 @@ class Main extends React.Component {
                       style = {{backgroundColor: '#4d4c62'}}
                       onChange={this.handleChange}
                       showLabels>
-                      <BottomNavigationAction label="Real-Time" icon={<FavoriteIcon />} />
-                      <BottomNavigationAction label="History" icon={<RestoreIcon />} />
+                      <BottomNavigationAction className='NavButton' label="Real-Time" icon={<FavoriteIcon />} />
+                      <BottomNavigationAction className='NavButton' label="History" icon={<RestoreIcon />} />
                     </BottomNavigation>
                   </Grid>
                 </Grid>
               </Paper>
             </Grid>
-            {
-              this.state.value ? (
-                <Past/>
-              ) : (
-                <Realtime data = {this.state} />         
-              )
-            }
+            {this.state.value ? (<Past/>) : (<Realtime data = {this.state}/>)}
          </Grid>
       </div>);
   }
