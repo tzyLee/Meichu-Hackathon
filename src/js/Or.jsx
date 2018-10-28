@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Logo from '../assets/logo.png';
 import {FlexibleWidthXYPlot, XAxis, YAxis, AreaSeries} from 'react-vis';
+import AverageGauge from './AverageGauge.jsx';
 
 class OR extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class OR extends React.Component {
     <React.Fragment>
       <Grid item xs={8} style={{height: '30%'}}>
         <Paper style = {{height : '100%', position: 'relative', textAlign: 'center', paddingTop: '30px'}}>
+          <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Score </div>
           <FlexibleWidthXYPlot margin={{left: 50, right: 20}} height={220} xDomain={[1, 12]} yDomain={[66, 83]}>
             <XAxis/>
             <YAxis/>
@@ -24,7 +26,8 @@ class OR extends React.Component {
         </Paper> 
       </Grid>
       <Grid item xs={4} style={{height: '30%'}}>
-        <Paper style = {{height : '100%', position: 'relative', textAlign: 'center', paddingTop: '30px'}}>
+        <Paper style = {{height : '100%', position: 'relative', textAlign: 'left', paddingRight: '50%', paddingTop: '30px'}}>
+        <AverageGauge color="#9BC53D" value={11}/>
         </Paper> 
       </Grid>
       <Grid item container xs={5} justify="space-between" direction="row" style={{height: '60%'}}>
