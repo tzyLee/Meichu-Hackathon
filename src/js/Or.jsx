@@ -21,9 +21,9 @@ class OR extends React.Component {
     return (
     <React.Fragment>
       <Grid item xs={8} style={{height: '30%'}}>
-        <Paper style = {{height : '100%', position: 'relative', textAlign: 'center', paddingTop: '30px'}}>
+        <Paper style = {{height : '100%', position: 'relative', textAlign: 'center', paddingTop: '60px'}}>
           <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Score </div>
-          <FlexibleWidthXYPlot margin={{left: 50, right: 20}} height={220} xDomain={[1, 12]} yDomain={[66, 83]}>
+          <FlexibleWidthXYPlot margin={{left: 50, right: 20}} height={150} xDomain={[1, 12]} yDomain={[66, 83]}>
             <XAxis/>
             <YAxis/>
             <AreaSeries color='#4d4c5f' data={this.indoor}/>
