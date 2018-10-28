@@ -9,6 +9,7 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Past from './Past.jsx';
+import OR from './Or.jsx';
 
 let chartData = [
   {value: 0, x: 0, y: "CO2"},
@@ -50,6 +51,16 @@ class Main extends React.Component {
     this.setState({ value });
   };
 
+  switchState(state) {
+    return (<OR/>);
+    switch(state.value) {
+      case 1:
+        return (<Past/>);
+      case 0:
+        return (<Realtime data={state}/>);
+    }
+  }
+
   render() {
     return (
       <div>
@@ -73,7 +84,7 @@ class Main extends React.Component {
                 </Grid>
               </Paper>
             </Grid>
-            {this.state.value ? (<Past/>) : (<Realtime data = {this.state}/>)}
+            {this.switchState(this.state)}
          </Grid>
       </div>);
   }
