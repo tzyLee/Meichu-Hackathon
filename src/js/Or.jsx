@@ -5,6 +5,11 @@ import Paper from '@material-ui/core/Paper';
 import Logo from '../assets/logo.png';
 import {FlexibleWidthXYPlot, XAxis, YAxis, AreaSeries} from 'react-vis';
 import AverageGauge from './AverageGauge.jsx';
+import Star from '../assets/star.png';
+import Head from '../assets/head.png';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import Card from '@material-ui/core/Card';
 
 class OR extends React.Component {
   constructor(props) {
@@ -28,24 +33,33 @@ class OR extends React.Component {
       <Grid item xs={4} style={{height: '30%'}}>
         <Paper style = {{height : '100%', position: 'relative', textAlign: 'left', paddingRight: '50%', paddingTop: '30px'}}>
         <AverageGauge color="#9BC53D" value={11}/>
-        <div>Rank</div>
-        <table>
-          <tr><div style = {{color: '#4ac8cd', fontSize: '40px'}}>Down</div></tr>
-          <tr><div style = {{fontSize: '20px', position: 'relative', top: '-80px', left: '170px'}}>By</div></tr>
-          <tr><div style = {{color: '#4ac8cd', fontSize: '40px'}}>{5}</div></tr>
-        </table>
-        
-        
-        
+        <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Rank </div>
+        <div style={{marginLeft: '70%', paddingLeft: '50%', marginTop: '-69%', fontSize: '50px'}}>
+          <div style = {{color: '#4ac8cd'}}>Down</div>
+          <div>By</div>
+          <div style = {{color: '#4ac8cd'}}>{5}</div>
+        </div>
         </Paper> 
       </Grid>
       <Grid item container xs={5} justify="space-between" direction="row" style={{height: '60%'}}>
         <Grid item style = {{height : '46%', width: '100%', position: 'relative'}}> 
-          <Paper style = {{height : '100%', position: 'relative', textAlign: 'center'}}>
-          </Paper> 
+          <Paper style = {{height : '100%', position: 'relative', textAlign: 'left'}}>
+          <img src={Star} style={{height: '100%'}}/>
+          <div style={{textAlign: 'center'}}>
+            <span>Highest Rated</span>
+            <br/>
+            <span>Helsinki, Fin</span>
+          </div>
+          </Paper>
         </Grid>
         <Grid item style = {{height : '46%', width: '100%', position: 'relative'}}> 
-          <Paper style = {{height : '100%', position: 'relative', textAlign: 'center'}}>
+          <Paper style = {{height : '100%', position: 'relative', textAlign: 'left'}}>
+          <img src={Head} style={{height: '100%'}}/>
+          <div style={{textAligh: 'center'}}>
+            <span>Most Popular</span>
+            <br/>
+            <span>Zurich, Switzerland</span>
+          </div>
           </Paper> 
         </Grid>
       </Grid>
