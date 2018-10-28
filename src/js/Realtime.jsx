@@ -31,7 +31,7 @@ class Realtime extends React.Component {
             <span style = {{fontSize: '20px'}}>
               Saving
               <span style = {{color: '#4ac8cd', fontSize: '40px'}} > {power} </span>
-              %/min.
+              %.
             </span>
           </Paper> 
         </Grid>

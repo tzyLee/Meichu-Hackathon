@@ -3,12 +3,10 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Logo from '../assets/logo.png';
 import Realtime from './Realtime.jsx';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Past from './Past.jsx';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import { withStyles } from '@material-ui/core/styles';
 
 let chartData = [
   {value: 0, x: 0, y: "CO2"},
@@ -21,7 +19,28 @@ let chartData = [
   {value: 0, x: 0, y: "PM2.5"},
   {value: 0, x: 0, y: "O3"}
 ]
-
+const styles = theme => ({
+  tabsRoot: {
+    borderBottom: '1px solid #ffffff',
+    color: '#ffffff',
+    fontSize: '18px'
+  },
+  tabsIndicator: {
+    backgroundColor: '#ffffff',
+    color: '#ffffff'
+  },
+  tabRoot: {
+    '&:hover': {
+      color: '#ffffff',
+    },
+    '&$tabSelected': {
+      color: '#ffffff',
+    },
+    '&:focus': {
+      color: '#ffffff',
+    },
+  },
+});
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -47,10 +66,12 @@ class Main extends React.Component {
   }
 
   handleChange(e, value){
+    console.log(value);
     this.setState({ value });
   };
 
   render() {
+    const {classes} = this.props;
     return (
       <div>
          <Grid container className = 'root' spacing = {24}>
@@ -58,17 +79,19 @@ class Main extends React.Component {
               <Paper style = {{height: '80px', backgroundColor: '#4d4c5f', position: 'relative'}}> 
                 <Grid container justify = 'space-between'>
                   <Grid item xs>
-                    <img style = {{position: 'relative', top: '20px', left: '20px', height: '50%'}} src={Logo}/>
+                    <img style = {{position: 'relative', top: '10px', left: '20px', height: '90%'}} src={Logo}/>
                   </Grid>
                   <Grid item xs>
-                    <BottomNavigation 
-                      value = {this.state.value}
-                      style = {{backgroundColor: '#4d4c62'}}
+                    <Tabs
+                      value={this.state.value}
                       onChange={this.handleChange}
-                      showLabels>
-                      <BottomNavigationAction label="Real-Time" icon={<FavoriteIcon />} />
-                      <BottomNavigationAction label="History" icon={<RestoreIcon />} />
-                    </BottomNavigation>
+                      fullWidth
+                      classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}
+                    >
+                      <Tab label="Real-Time" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
+                      <Tab label="History" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
+                      <Tab label="Olfactory-Reality" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
+                    </Tabs>
                   </Grid>
                 </Grid>
               </Paper>
@@ -85,4 +108,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+export default withStyles(styles)(Main);
