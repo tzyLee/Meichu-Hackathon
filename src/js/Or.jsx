@@ -7,9 +7,7 @@ import {FlexibleWidthXYPlot, XAxis, YAxis, AreaSeries} from 'react-vis';
 import AverageGauge from './AverageGauge.jsx';
 import Star from '../assets/star.png';
 import Head from '../assets/head.png';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import Card from '@material-ui/core/Card';
+import {FlexibleXYPlot, XYPlot, ArcSeries, LabelSeries} from 'react-vis';
 
 class OR extends React.Component {
   constructor(props) {
@@ -32,7 +30,11 @@ class OR extends React.Component {
       </Grid>
       <Grid item xs={4} style={{height: '30%'}}>
         <Paper style = {{height : '100%', position: 'relative', textAlign: 'left', paddingRight: '50%', paddingTop: '30px'}}>
-        <AverageGauge color="#9BC53D" value={11}/>
+      <FlexibleXYPlot xDomain={[-5, 5]} yDomain={[-5, 5]}>
+        <LabelSeries data={[{x: -0.5, y: -0.8, label: '11'}]} style={{fontSize: 80, stroke: '#868580'}} labelAnchorX='middle' labelAnchorY='middle'/>
+        <ArcSeries className='alignCenter' radiusType={'literal'} center={{x: -0.5, y: -0.7}}
+                   data={[{angle0: 0, angle: 89*2*Math.PI/100, radius0: 75, radius: 90}]} colorType={'literal'} color="#9BC53D" radiusDomain={[0, 90]}/>
+      </FlexibleXYPlot>
         <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Rank </div>
         <div style={{marginLeft: '70%', paddingLeft: '50%', marginTop: '-69%', fontSize: '50px'}}>
           <div style = {{color: '#4ac8cd'}}>Down</div>
