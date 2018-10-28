@@ -28,6 +28,15 @@ class OR extends React.Component {
       <Grid item xs={4} style={{height: '30%'}}>
         <Paper style = {{height : '100%', position: 'relative', textAlign: 'left', paddingRight: '50%', paddingTop: '30px'}}>
         <AverageGauge color="#9BC53D" value={11}/>
+        <div>Rank</div>
+        <table>
+          <tr><div style = {{color: '#4ac8cd', fontSize: '40px'}}>Down</div></tr>
+          <tr><div style = {{fontSize: '20px', position: 'relative', top: '-80px', left: '170px'}}>By</div></tr>
+          <tr><div style = {{color: '#4ac8cd', fontSize: '40px'}}>{5}</div></tr>
+        </table>
+        
+        
+        
         </Paper> 
       </Grid>
       <Grid item container xs={5} justify="space-between" direction="row" style={{height: '60%'}}>

@@ -14,7 +14,7 @@ class BarChart extends React.Component {
   render() {
     const data = this.props.data;
     const chartHeight= 600;
-    const chartWidth = 900;
+    const chartWidth = 1200;
     const chartDomain = [0, chartWidth];
     const thresholdRatio = 0.7;
     const threshold = chartWidth*thresholdRatio/2;
