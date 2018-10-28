@@ -48,33 +48,33 @@ class Past extends React.Component {
               </Paper> 
             </Grid>
             <Grid item xs={4}>
-              <Paper style = {{height : '200px', position: 'relative'}}>
+              <Paper style = {{height : '175px', position: 'relative'}}>
                 <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Pollution Top1 </div>
                 <div style = {{position: 'absolute', top: '5px', right: '10px', fontSize: '40px', color: '#4ac8cd'}}> PM2.5 </div>
                 <AverageGauge color="#FA7921" value={37}/>
               </Paper>
             </Grid>
             <Grid item xs={4}>
-              <Paper style = {{height : '200px', position: 'relative'}}>
+              <Paper style = {{height : '175px', position: 'relative'}}>
                 <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Pollution Top2 </div>
                 <div style = {{position: 'absolute', top: '5px', right: '10px', fontSize: '40px', color: '#4ac8cd'}}> PM10 </div>
                 <AverageGauge color="#FA7921" value={43}/>
               </Paper>
             </Grid>
             <Grid item xs={4}>
-              <Paper style = {{height : '200px', position: 'relative'}}>
+              <Paper style = {{height : '175px', position: 'relative'}}>
                 <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Pollution Top3 </div>
                 <div style = {{position: 'absolute', top: '5px', right: '10px', fontSize: '40px', color: '#4ac8cd'}}> O3 </div>
                 <AverageGauge color="#FDE74C" value={51}/>
               </Paper>
             </Grid>
             <Grid item xs={9}>
-              <Paper style = {{height: '400px', position: 'relative'}}>
+              <Paper style = {{height: '350px', position: 'relative'}}>
               <LineChart/>
               </Paper>
             </Grid>
             <Grid item xs={3}>
-              <Paper style = {{height: '400px', position: 'relative'}}>
+              <Paper style = {{height: '350px', position: 'relative'}}>
               <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Filter </div>
               <AverageGauge color="#FDE74C" value={51}/>
               <span style = {{fontSize: '20px', position: 'relative', top: '-80px', left: '170px'}}> <span style = {{color: '#4ac8cd', fontSize: '40px'}}>{90}</span> days left</span>
