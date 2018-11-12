@@ -15,9 +15,8 @@ class OR extends React.Component {
 
   render() {
     return (
-    <React.Fragment>
-      <Grid item xs={8} style={{height: '30%'}}>
-        <Paper style = {{height : '100%', position: 'relative', textAlign: 'center', paddingTop: '30px'}}>
+    <div style={{display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridTemplateRows: 'repeat(9, 1fr)', height: 'calc(98vh - 138px)', gap: '20px 20px', marginTop: '30px', marginBottom: '20px'}}>
+        <Paper style = {{position: 'relative', textAlign: 'center', paddingTop: '30px', gridArea: '1/1/span 3/span 8'}}>
           <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Score </div>
           <FlexibleWidthXYPlot margin={{left: 50, right: 20}} height={150} xDomain={[1, 12]} yDomain={[66, 83]}>
             <XAxis/>
@@ -25,40 +24,29 @@ class OR extends React.Component {
             <AreaSeries color='#4d4c5f' data={this.indoor}/>
           </FlexibleWidthXYPlot>
         </Paper> 
-      </Grid>
-      <Grid item xs={4} style={{height: '30%'}}>
-        <Paper style = {{height : '100%', position: 'relative', textAlign: 'left', paddingRight: '50%'}}>
-        <FlexibleXYPlot xDomain={[-5, 5]} yDomain={[-5, 5]}>
-        <LabelSeries data={[{x: -0.5, y: -2, label: '11'}]} style={{fontSize: 80, stroke: '#868580'}} labelAnchorX='middle' labelAnchorY='middle'/>
-        <ArcSeries className='alignCenter' radiusType={'literal'} center={{x: -0.5, y: -1.9}}
-                   data={[{angle0: 0, angle: 89*2*Math.PI/100, radius0: 75, radius: 90}]} colorType={'literal'} color="9BC53D" radiusDomain={[0, 90]}/>
-      </FlexibleXYPlot>
+        <Paper style = {{height : '100%', position: 'relative', textAlign: 'left', paddingRight: '25%', gridArea: '1/9/span 3/span 4', display: 'inline-flex'}}>
+          <FlexibleXYPlot xDomain={[-5, 5]} yDomain={[-5, 5]}>
+            <LabelSeries data={[{x: -0.5, y: -2, label: '11'}]} style={{fontSize: 80, stroke: '#868580'}} labelAnchorX='middle' labelAnchorY='middle'/>
+            <ArcSeries className='alignCenter' radiusType={'literal'} center={{x: -0.5, y: -1.9}}
+                      data={[{angle0: 0, angle: 89*2*Math.PI/100, radius0: 75, radius: 90}]} colorType={'literal'} color="9BC53D" radiusDomain={[0, 90]}/>
+          </FlexibleXYPlot>
           <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Rank </div>
-          <div style={{marginLeft: '70%', paddingLeft: '50%', marginTop: '-90%', fontSize: '50px'}}>
+          <div style={{fontSize: '50px', flexFlow: 'column wrap', justifyContent: 'space-between', justifyItems: 'space-between', transform: 'translateY(18%)'}}>
             <div style = {{color: '#4ac8cd'}}>Down</div>
             <div>By</div>
             <div style = {{color: '#4ac8cd'}}>{5}</div>
           </div>
-        </Paper> 
-      </Grid>
-      <Grid item container xs={5} justify="space-between" direction="row" style={{height: '60%'}}>
-        <Grid item style = {{height : '46%', width: '100%', position: 'relative'}}> 
-          <Paper style = {{height : '100%', position: 'relative'}}>
-            <img src={yellow} style={{height: '100%', width: '100%'}}/>
-          </Paper>
-        </Grid>
-        <Grid item style = {{height : '46%', width: '100%', position: 'relative'}}> 
-          <Paper style = {{height : '100%', position: 'relative'}}>
-            <img src={orange} style={{height: '100%', width: '100%'}}/>
-          </Paper> 
-        </Grid>
-      </Grid>
-      <Grid item xs={7} style={{height: '60%'}}>
-          <Paper style = {{height : '100%', position: 'relative', textAlign: 'center', overflow: 'scroll'}}>
-            <img src={table} style={{width: '100%'}}/>
-          </Paper> 
-        </Grid>
-    </React.Fragment>);
+        </Paper>
+      <Paper style = {{position: 'relative', gridArea: '4/1/span 3/span 5'}}>
+        <img src={yellow} style={{height: '100%', width: '100%'}}/>
+      </Paper>
+      <Paper style = {{position: 'relative', gridArea: '7/1/span 3/span 5'}}>
+        <img src={orange} style={{height: '100%', width: '100%'}}/>
+      </Paper>
+      <Paper style = {{height : '100%', position: 'relative', textAlign: 'center', overflow: 'scroll', gridArea: '4/6/span 6/span 7', overflowX: 'hidden'}}>
+        <img src={table} style={{width: '100%'}}/>
+      </Paper>
+    </div>);
   }
 }
 

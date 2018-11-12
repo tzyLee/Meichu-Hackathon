@@ -85,8 +85,8 @@ class Main extends React.Component {
   render() {
     const {classes} = this.props;
     return (
-      <div style = {{display: 'grid', gridTemplateColumns: 'repeat(8, 1fr) 60px repeat(3, 1fr)', gridTemplateRows: 'repeat(4, 1fr) 50px repeat(2, 1fr)', height: '98vh'}}>
-        <Paper style = {{height: '80px', backgroundColor: '#4d4c5f', position: 'relative', gridColumn: '1/-1', gridRow: '1/1'}}> 
+      <div>
+        <Paper style = {{height: '80px', backgroundColor: '#4d4c5f', position: 'relative'}}> 
           <Grid container justify = 'space-between'>
             <Grid item xs>
               <img style = {{position: 'relative', top: '10px', left: '20px', height: '90%'}} src={Logo}/>
