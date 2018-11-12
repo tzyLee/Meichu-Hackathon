@@ -16,8 +16,8 @@ class OR extends React.Component {
   render() {
     return (
     <div style={{display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridTemplateRows: 'repeat(9, 1fr)', height: 'calc(98vh - 138px)', gap: '20px 20px', marginTop: '30px', marginBottom: '20px'}}>
-        <Paper style = {{position: 'relative', textAlign: 'center', paddingTop: '30px', gridArea: '1/1/span 3/span 8'}}>
-          <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Score </div>
+        <Paper className='info-card' style={{paddingTop: '30px', gridArea: '1/1/span 3/span 8'}}>
+          <div className='info-card__header'> Score </div>
           <FlexibleWidthXYPlot margin={{left: 50, right: 20}} height={150} xDomain={[1, 12]} yDomain={[66, 83]}>
             <XAxis/>
             <YAxis/>
@@ -30,20 +30,20 @@ class OR extends React.Component {
             <ArcSeries className='alignCenter' radiusType={'literal'} center={{x: -0.5, y: -1.9}}
                       data={[{angle0: 0, angle: 89*2*Math.PI/100, radius0: 75, radius: 90}]} colorType={'literal'} color="9BC53D" radiusDomain={[0, 90]}/>
           </FlexibleXYPlot>
-          <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Rank </div>
+          <div className='info-card__header'> Rank </div>
           <div style={{fontSize: '50px', flexFlow: 'column wrap', justifyContent: 'space-between', justifyItems: 'space-between', transform: 'translateY(18%)'}}>
             <div style = {{color: 'var(--blue)'}}>Down</div>
             <div>By</div>
             <div style = {{color: 'var(--blue)'}}>{5}</div>
           </div>
         </Paper>
-      <Paper style = {{position: 'relative', gridArea: '4/1/span 3/span 5'}}>
+      <Paper style={{gridArea: '4/1/span 3/span 5'}}>
         <img src={yellow} style={{height: '100%', width: '100%'}}/>
       </Paper>
-      <Paper style = {{position: 'relative', gridArea: '7/1/span 3/span 5'}}>
+      <Paper style={{gridArea: '7/1/span 3/span 5'}}>
         <img src={orange} style={{height: '100%', width: '100%'}}/>
       </Paper>
-      <Paper style = {{height : '100%', position: 'relative', textAlign: 'center', overflow: 'scroll', gridArea: '4/6/span 6/span 7', overflowX: 'hidden'}}>
+      <Paper className='info-card' style={{height : '100%', overflow: 'scroll', gridArea: '4/6/span 6/span 7', overflowX: 'hidden'}}>
         <img src={table} style={{width: '100%'}}/>
       </Paper>
     </div>);
