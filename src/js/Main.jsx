@@ -85,31 +85,27 @@ class Main extends React.Component {
   render() {
     const {classes} = this.props;
     return (
-      <div>
-         <Grid container className = 'root' spacing = {24}>
-            <Grid item xs = {12}>
-              <Paper style = {{height: '80px', backgroundColor: '#4d4c5f', position: 'relative'}}> 
-                <Grid container justify = 'space-between'>
-                  <Grid item xs>
-                    <img style = {{position: 'relative', top: '10px', left: '20px', height: '90%'}} src={Logo}/>
-                  </Grid>
-                  <Grid item xs>
-                    <Tabs
-                      value={this.state.value}
-                      onChange={this.handleChange}
-                      fullWidth
-                      classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}
-                    >
-                      <Tab label="Real-Time" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
-                      <Tab label="History" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
-                      <Tab label="Olfactory-Reality" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
-                    </Tabs>
-                  </Grid>
-                </Grid>
-              </Paper>
+      <div style = {{display: 'grid', gridTemplateColumns: 'repeat(8, 1fr) 60px repeat(3, 1fr)', gridTemplateRows: 'repeat(4, 1fr) 50px repeat(2, 1fr)', height: '98vh'}}>
+        <Paper style = {{height: '80px', backgroundColor: '#4d4c5f', position: 'relative', gridColumn: '1/-1', gridRow: '1/1'}}> 
+          <Grid container justify = 'space-between'>
+            <Grid item xs>
+              <img style = {{position: 'relative', top: '10px', left: '20px', height: '90%'}} src={Logo}/>
             </Grid>
-            {this.switchState(this.state)}
-         </Grid>
+            <Grid item xs>
+              <Tabs
+                value={this.state.value}
+                onChange={this.handleChange}
+                fullWidth
+                classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}
+              >
+                <Tab label="Real-Time" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
+                <Tab label="History" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
+                <Tab label="Olfactory-Reality" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
+              </Tabs>
+            </Grid>
+          </Grid>
+        </Paper>
+      {this.switchState(this.state)}
       </div>);
   }
 }
