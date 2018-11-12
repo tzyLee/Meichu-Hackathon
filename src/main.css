@@ -34,7 +34,7 @@ html {
 /* info-card */
 .info-card {
   position: relative;
-  padding-top: 10px;
+  text-align: center;
 }
 
 .info-card__header {
@@ -47,4 +47,16 @@ html {
 .info-card__blue-text {
   color: var(--blue);
   font-size: 40px;
+}
+
+.info-card__upper-right-text {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.info-card__bottom-text {
+  font-size: 20px;
+  position: relative;
+  top: -60px;
 }

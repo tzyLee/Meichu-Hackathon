@@ -8,11 +8,11 @@ class InfoCard extends React.Component {
 
   render() {
     return (
-      <Paper style = {{position: 'relative', textAlign: 'center', paddingTop: '30px', ...this.props.style}}>
+      <Paper className='info-card' style = {this.props.style}>
         <div className='info-card__header'> {this.props.header} </div>
         <span style = {{fontSize: '20px'}}>
           {this.props.before}
-          <span className='info-card__blue-text'> {this.props.middle} </span>
+          <span className={this.props.middleClass}> {this.props.middle} </span>
           {this.props.after}
         </span>
       </Paper>
@@ -23,7 +23,9 @@ class InfoCard extends React.Component {
 InfoCard.defaultProps = {
   style: {
     height: '28%',
-    width: '100%'
-  }
+    width: '100%',
+    paddingTop: '30px'
+  },
+  middleClass: 'info-card__blue-text'
 }
 export default InfoCard;
