@@ -11,10 +11,10 @@ class LineChart extends React.Component {
   render() {
     return (
       <React.Fragment>
-      <FlexibleWidthXYPlot margin={{left: 50, right: 20}} height={300} xDomain={[1, 12]} yDomain={[41, 68]}>
+      <FlexibleWidthXYPlot margin={{left: 50, right: 20}} height={200} xDomain={[1, 12]} yDomain={[41, 68]}>
         <XAxis />
         <YAxis/>
-        <DiscreteColorLegend className='legend' style={{display: 'inline', transform: 'scale(2, 2)', top: '8%', right: '8%'}} items={[{title: 'indoor', color: '#4d4c5f', strokeWidth: 10}, {title: 'outdoor', color: '#6fc6cc', strokeWidth: 10}]}/>
+        <DiscreteColorLegend className='legend' style={{display: 'inline', transform: 'scale(1.5, 1.5)', top: '8%', right: '8%'}} items={[{title: 'indoor', color: '#4d4c5f', strokeWidth: 10}, {title: 'outdoor', color: '#6fc6cc', strokeWidth: 10}]}/>
         <AreaSeries color='#4d4c5f' data={this.indoor}/>
         <AreaSeries color='#6fc6cc' data={this.outdoor}/>
       </FlexibleWidthXYPlot>

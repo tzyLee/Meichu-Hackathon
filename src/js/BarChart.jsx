@@ -16,16 +16,16 @@ class BarChart extends React.Component {
     const chartHeight= 600;
     const chartWidth = 1200;
     const chartDomain = [0, chartWidth];
-    const thresholdRatio = 0.8;
-    const threshold = chartWidth*thresholdRatio/2;
-    const markXOffset = 500;
+    const thresholdRatio = 0.85;
+    const threshold = chartWidth*thresholdRatio;
+    const markXOffset = 1150;
     return (
     <FlexibleWidthXYPlot margin={{left: 100}} yType="ordinal" height = {chartHeight} xDomain={chartDomain}>
         <YAxis style={{text: {stroke: 'none', fill: '#868580'}}}/>
-        <HorizontalBarSeries color='#6fc6cc' barWidth={0.5} data={data.map(obj => ({x: obj.x*chartWidth/2, y: obj.y}))}/>
+        <HorizontalBarSeries color='#6fc6cc' barWidth={0.5} data={data.map(obj => ({x: obj.x*chartWidth, y: obj.y}))}/>
         <LabelSeries data={data.map(obj => {
           obj.label = obj.value.toString();
-          obj.x *= chartWidth/2;
+          obj.x *= chartWidth;
           obj.xoffset = 3;
           return obj;
         })} labelAnchorY="middle" labelAnchorX="end"/>
