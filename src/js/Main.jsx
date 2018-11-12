@@ -92,12 +92,8 @@ class Main extends React.Component {
               <img style = {{position: 'relative', top: '10px', left: '20px', height: '90%'}} src={Logo}/>
             </Grid>
             <Grid item xs>
-              <Tabs
-                value={this.state.value}
-                onChange={this.handleChange}
-                fullWidth
-                classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}
-              >
+              <Tabs value={this.state.value} onChange={this.handleChange}
+                fullWidth classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}>
                 <Tab label="Real-Time" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
                 <Tab label="History" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />
                 <Tab label="Olfactory-Reality" classes={{ root: classes.tabRoot, selected: classes.tabSelected }} />

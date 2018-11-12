@@ -1,21 +1,6 @@
-/* Gauge */
-/* .Gauge {
-    width: fit-content;
-    display: inline-block;
+:root {
+  --blue: #4ac8cd;
 }
-
-.Gauge > div[id^=Gauge] {
-    text-align: center;
-    font-size: 2em;
-}
-
-.Gauge .GaugeDescription {
-    text-align: center;
-    font-size: 1.4em;
-} */
-/* .dashboard{
-  width: 100%;
-} */
 
 * {
   -webkit-box-sizing: border-box;
@@ -29,7 +14,6 @@
 
 html {
   background-color: #9c9b9b;
-  /* overflow: hidden; */
 }
 
 .root {
@@ -37,17 +21,6 @@ html {
   padding: 20px;
 }
 
-/* .alignCenter {
-  margin: 0 auto;
-} */
-
-/* .infoText {
-  display: block; 
-  color: #4ac8cd;
-  margin-left: 4em;
-  font-size: 1.2em;
-}
-*/
 .legend {
   position: absolute;
 }
@@ -56,4 +29,22 @@ html {
   text-shadow: black 0px 2px;
   transform: rotateZ(90deg);
   color: rgba(255, 255, 255, 0);
+}
+
+/* info-card */
+.info-card {
+  position: relative;
+  padding-top: 10px;
+}
+
+.info-card__header {
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  font-size: 30px
+}
+
+.info-card__blue-text {
+  color: var(--blue);
+  font-size: 40px;
 }

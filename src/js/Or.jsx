@@ -32,9 +32,9 @@ class OR extends React.Component {
           </FlexibleXYPlot>
           <div style = {{position: 'absolute', top: '5px', left: '20px', fontSize: '30px'}}> Rank </div>
           <div style={{fontSize: '50px', flexFlow: 'column wrap', justifyContent: 'space-between', justifyItems: 'space-between', transform: 'translateY(18%)'}}>
-            <div style = {{color: '#4ac8cd'}}>Down</div>
+            <div style = {{color: 'var(--blue)'}}>Down</div>
             <div>By</div>
-            <div style = {{color: '#4ac8cd'}}>{5}</div>
+            <div style = {{color: 'var(--blue)'}}>{5}</div>
           </div>
         </Paper>
       <Paper style = {{position: 'relative', gridArea: '4/1/span 3/span 5'}}>
